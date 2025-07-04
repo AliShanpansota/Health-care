@@ -53,6 +53,6 @@ Name: Ali Shan Pansota
 
 Tech Stack: React Native, Express.js, MongoDB, AI Integration
 
-
+linkedIn:  linkedin.com/in/ali-shan-pansota
 Email: alishanpansot49@gmail.com
 
