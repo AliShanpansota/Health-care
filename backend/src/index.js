@@ -4,6 +4,8 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 const authRoutes = require("./routes/authRoutes");
 const healthDataRoutes = require("./routes/healthDataRoutes");
+const chatbotRoutes = require("./routes/chatbotRoutes");
+const { Server } = require("socket.io");
 const cors = require("cors");
 
 const app = express();
@@ -18,6 +20,7 @@ app.use(cors());
 app.use("/api/auth", authRoutes);
 app.use("/api", healthDataRoutes);
 
+app.use("/api/chatbot", chatbotRoutes);
 // Database Connection
 mongoose
   .connect(process.env.MONGO_URI)

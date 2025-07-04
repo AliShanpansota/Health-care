@@ -1,3 +1,5 @@
+// models/Patient.js
+
 const mongoose = require("mongoose");
 
 const healthDataSchema = new mongoose.Schema({
@@ -15,13 +17,9 @@ const patientSchema = new mongoose.Schema({
   email: { type: String, unique: true, required: true },
   password: { type: String, required: true },
   doctorCodes: {
-    type: [String], // ✅ store doctorCodes here
+    type: [{ type: mongoose.Schema.Types.ObjectId, ref: "Doctor" }],
     default: [],
-  },
-  healthData: {
-    type: [healthDataSchema],
-    default: [],
-  },
+  }, // ✅ Optional field
 });
 
 module.exports = mongoose.model("Patient", patientSchema);

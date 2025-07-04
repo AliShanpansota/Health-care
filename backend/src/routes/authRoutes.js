@@ -97,6 +97,7 @@ router.post("/login", async (req, res) => {
     }
 
     const token = jwt.sign({ id: user._id, role }, process.env.JWT_SECRET, {
+      // Make absolutely sure role is included
       expiresIn: "1d",
     });
     return res.status(200).json({ message: `${role} logged in`, token });
@@ -105,7 +106,6 @@ router.post("/login", async (req, res) => {
     return res.status(500).json({ message: "Error logging in" });
   }
 });
-
 // ── PROFILE ────────────────────────────────────────────────────
 router.get("/profile", authenticate, async (req, res) => {
   try {
@@ -115,10 +115,14 @@ router.get("/profile", authenticate, async (req, res) => {
 
     // If patient, also populate assigned doctors
     if (role === "patient") {
-      user.doctors = await Doctor.find({ _id: { $in: user.doctorCodes } })
+      let doctors = await Doctor.find({ _id: { $in: user.doctorCodes } })
         .select("name doctorCode specialty _id")
         .lean();
+      user.doctors = doctors; // Assign the flat array directly
     }
+
+    // Explicitly set the role in the profile
+    user.role = role; // Add this line
 
     return res.status(200).json({ profile: user });
   } catch (err) {
