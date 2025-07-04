@@ -13,11 +13,11 @@ This is a React Native mobile application with a Node.js/Express backend and Mon
 
 | Onboarding | Role Selection | Register | Login |
 |-----------|----------------|----------|-------|
-| ![Onboarding](assets/screenshots/AppointmentScreen.jpeg) | ![Role Selection](assets/screenshots/RoleSelection.jpeg) | ![Register](assets/screenshots/RegisterScreen.jpeg) | ![Login](assets/screenshots/login.png) |
+| ![Onboarding](assets/screenshots/AppointmentScreen.jpeg) | ![Role Selection](assets/screenshots/RoleSelection.jpeg) | ![Register](assets/screenshots/RegisterScreen.jpeg) | ![Login](assets/screenshots/LoginScreen.jpeg) |
 
 | Health Report | Appointment |
 |---------------|-------------|
-| ![Health Report](assets/screenshots/health-report.png) | ![Appointment](assets/screenshots/appointment.png) |
+| ![Health Report](assets/screenshots/HealthData.jpeg) | ![Appointment](assets/screenshots/AppointmentScreen.jpeg) |
 
 ## 🛠 Tech Stack
 
